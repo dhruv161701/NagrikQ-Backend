@@ -9,7 +9,7 @@ import { startTelegramPolling } from './services/telegramBotService';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+
 
 // CORS configuration for frontend
 app.use(
