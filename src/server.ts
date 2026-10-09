@@ -48,10 +48,15 @@ app.use('/api', apiRoutes);
 app.use(errorHandler);
 
 // Start Express Server
-app.listen(PORT, async () => {
-  console.log(`🚀 NagrikQ Backend API running on http://localhost:${PORT}`);
+
+const PORT = Number(process.env.PORT) || 5000;
+
+app.listen(PORT, "0.0.0.0", async () => {
+  console.log(`🚀 NagrikQ Backend API running on port ${PORT}`);
+
   // Automatically ensure Super Admin account exists in Supabase Auth & Profiles
   await ensureSuperAdminExists();
+
   // Start Telegram bot polling loop
   startTelegramPolling();
 });
